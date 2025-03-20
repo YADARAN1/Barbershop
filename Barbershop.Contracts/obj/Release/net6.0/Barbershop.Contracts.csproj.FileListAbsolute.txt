@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\bin\Release\net6.0\Barbershop.Contracts.deps.json
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\bin\Release\net6.0\Barbershop.Contracts.dll
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\bin\Release\net6.0\Barbershop.Contracts.pdb
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\obj\Release\net6.0\Barbershop.Contracts.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\obj\Release\net6.0\Barbershop.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\obj\Release\net6.0\Barbershop.Contracts.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\obj\Release\net6.0\Barbershop.Contracts.AssemblyInfo.cs
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\obj\Release\net6.0\Barbershop.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\obj\Release\net6.0\Barbershop.Contracts.dll
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\obj\Release\net6.0\refint\Barbershop.Contracts.dll
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\obj\Release\net6.0\Barbershop.Contracts.pdb
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Contracts\obj\Release\net6.0\ref\Barbershop.Contracts.dll

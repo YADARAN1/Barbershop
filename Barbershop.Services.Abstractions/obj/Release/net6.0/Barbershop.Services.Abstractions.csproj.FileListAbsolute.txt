@@ -1,0 +1,17 @@
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\bin\Release\net6.0\Barbershop.Services.Abstractions.deps.json
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\bin\Release\net6.0\Barbershop.Services.Abstractions.dll
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\bin\Release\net6.0\Barbershop.Services.Abstractions.pdb
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\bin\Release\net6.0\Barbershop.Contracts.dll
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\bin\Release\net6.0\Barbershop.Domain.dll
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\bin\Release\net6.0\Barbershop.Contracts.pdb
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\bin\Release\net6.0\Barbershop.Domain.pdb
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\Barbershop.Services.Abstractions.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\Barbershop.Services.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\Barbershop.Services.Abstractions.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\Barbershop.Services.Abstractions.AssemblyInfo.cs
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\Barbershop.Services.Abstractions.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\Barbersh.B49E328A.Up2Date
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\Barbershop.Services.Abstractions.dll
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\refint\Barbershop.Services.Abstractions.dll
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\Barbershop.Services.Abstractions.pdb
+C:\Users\user\Desktop\Hardwork\Barbershop\Barbershop.Services.Abstractions\obj\Release\net6.0\ref\Barbershop.Services.Abstractions.dll
