@@ -6,7 +6,7 @@ namespace Barbershop.DAL.Context;
 internal class BarbershopContextFactory : IDesignTimeDbContextFactory<BarbershopContext>
 {
     public string ConnectionString { get; } =
-        "Host=localhost;Port=5432;Database=Barbershop;Username=postgres;Password=12345";
+        "Host=localhost;Port=5432;Database=Barbershop;Username=postgres;Password=postgres";
 
     public BarbershopContext CreateContext() => CreateDbContext(Array.Empty<string>());
 
