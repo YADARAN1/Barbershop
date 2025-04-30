@@ -59,11 +59,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
+      "projectUniqueName": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
       "projectName": "Barbershop.Contracts",
-      "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
+      "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\obj\\",
+      "outputPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

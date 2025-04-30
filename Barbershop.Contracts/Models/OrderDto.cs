@@ -24,6 +24,15 @@ public class OrderDto : EntityDto
     public decimal TotalPrice =>
         Services.Sum(x => x.Cost) + Products.Sum(x => x.Cost);
 
+    public bool DiscountApplied { get; set; }
+
+    public decimal DiscountRate { get; set; }
+
+    public decimal FinalPrice
+        => DiscountApplied
+            ? Math.Round(TotalServicesPrice * (1 - DiscountRate) + Products.Sum(x => x.Cost), 2)
+            : TotalPrice;
+
     public int TotalMinutes =>
         Services.Sum(x => x.MinutesDuration);
 }

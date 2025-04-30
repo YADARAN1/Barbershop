@@ -66,12 +66,14 @@ public abstract class BaseItemsViewModel<T> : BaseViewModel
     /// Обработка вызова создания элемента.
     /// </summary>
     public abstract Task CreateItem();
+
     private async Task Create() => await Execute(async () => await CreateItem());
 
     /// <summary>
     /// Обработка вызова редактирования элемента.
     /// </summary>
     public abstract Task EditItem();
+
     private async Task Edit() => await Execute(async () => await EditItem());
 
     /// <summary>
@@ -79,8 +81,8 @@ public abstract class BaseItemsViewModel<T> : BaseViewModel
     /// </summary>
     /// <returns></returns>
     public abstract Task RemoveItem();
-    private async Task Remove() => await Execute(async () => await RemoveItem());
 
+    private async Task Remove() => await Execute(async () => await RemoveItem());
 
     public async Task LoadItems()
     {
@@ -105,7 +107,6 @@ public abstract class BaseItemsViewModel<T> : BaseViewModel
 
         return true;
     }
-
 
     public async Task ReplaceItem(Predicate<T> predicate, T newItem)
     {

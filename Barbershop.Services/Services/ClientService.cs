@@ -5,7 +5,7 @@ using Barbershop.Domain.Models;
 using Barbershop.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace Barbershop.Services;
+namespace Barbershop.Services.Services;
 
 public class ClientService : EntityService<ClientDto, Client, UpsertClientCommand>
 {

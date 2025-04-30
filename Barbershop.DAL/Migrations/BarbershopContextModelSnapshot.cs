@@ -129,6 +129,12 @@ namespace Barbershop.DAL.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<bool>("DiscountApplied")
+                        .HasColumnType("boolean");
+
+                    b.Property<decimal>("DiscountRate")
+                        .HasColumnType("numeric");
+
                     b.Property<string>("OrderStatus")
                         .IsRequired()
                         .HasColumnType("text");

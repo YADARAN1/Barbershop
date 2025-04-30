@@ -1,10 +1,9 @@
 ﻿using Barbershop.Contracts.Models;
-using Barbershop.Services;
 using Barbershop.UI.ViewModels.Base;
 using DevExpress.Mvvm;
-using DevExpress.Mvvm.Native;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Barbershop.Services.Services;
 
 namespace Barbershop.UI.ViewModels.Pages.Edit;
 
@@ -13,6 +12,7 @@ public class EditOrderViewModel : EditViewModel<OrderDto>
     private readonly ProductService _productService;
 
     public ObservableCollection<ProductDto> ProductsToSelect { get; set; } = new();
+
     public ProductDto ProductToSelect
     {
         get => GetValue<ProductDto>(nameof(ProductToSelect));
@@ -20,17 +20,25 @@ public class EditOrderViewModel : EditViewModel<OrderDto>
     }
 
     public ObservableCollection<ProductDto> SelectedProducts { get; set; } = new();
+
     public ProductDto SelectedProduct
     {
         get => GetValue<ProductDto>(nameof(SelectedProduct));
         set => SetValue(value, nameof(SelectedProduct));
     }
 
+    public decimal DiscountedServicesCost
+        => Item.DiscountApplied
+            ? Math.Round(Item.TotalServicesPrice * (1 - Item.DiscountRate), 2)
+            : Item.TotalServicesPrice;
+
     public ICommand AddProductCommand { get; }
     public ICommand RemoveProductCommand { get; }
 
     public decimal TotalProductsCost => SelectedProducts.Sum(x => x.Cost);
-    public decimal TotalCost => Item.Services.Sum(x => x.Cost) + SelectedProducts.Sum(x => x.Cost);
+
+    public decimal TotalCost
+        => DiscountedServicesCost + TotalProductsCost;
 
     public EditOrderViewModel(OrderDto order, ProductService productService)
         : base(order)
@@ -40,7 +48,21 @@ public class EditOrderViewModel : EditViewModel<OrderDto>
         AddProductCommand = new DelegateCommand(SelectProduct, () => ProductToSelect != null);
         RemoveProductCommand = new DelegateCommand(RemoveProduct, () => SelectedProduct != null);
 
-        LoadViewDataCommand = new AsyncCommand(SplitProducts);
+        PropertyChanged += (s, e) =>
+        {
+            if (e.PropertyName == nameof(Item))
+            {
+                RaisePropertyChanged(nameof(DiscountedServicesCost));
+                RaisePropertyChanged(nameof(TotalCost));
+            }
+        };
+
+        LoadViewDataCommand = new AsyncCommand(async () =>
+        {
+            await SplitProducts();
+            RaisePropertyChanged(nameof(TotalCost));
+            RaisePropertyChanged(nameof(DiscountedServicesCost));
+        });
     }
 
     private async Task SplitProducts()

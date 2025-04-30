@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9CCP1wPONj4=",
+  "dgSpecHash": "JzS0qGRqdCY=",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
+  "projectFilePath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\devexpressmvvm\\23.2.3\\devexpressmvvm.23.2.3.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",

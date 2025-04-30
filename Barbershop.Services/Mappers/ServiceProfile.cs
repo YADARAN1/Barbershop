@@ -11,11 +11,11 @@ public sealed class ServiceProfile : Profile
     {
         CreateMap<Service, ServiceDto>()
             .ForMember(dest => dest.JuniorSkill,
-                opt => opt.MapFrom((src, _, dest) => MapServiceSkillLevel(src.ServiceSkillLevels, SkillLevel.Junior)))
+                opt => opt.MapFrom((src, _, dest) => MapServiceSkillLevel(src.ServiceSkillLevels, SkillLevel.Junior) ?? new ServiceSkillLevelDto()))  // Поставим пустой объект, если null
             .ForMember(dest => dest.MiddleSkill,
-                opt => opt.MapFrom((src, _, dest) => MapServiceSkillLevel(src.ServiceSkillLevels, SkillLevel.Middle)))
+                opt => opt.MapFrom((src, _, dest) => MapServiceSkillLevel(src.ServiceSkillLevels, SkillLevel.Middle) ?? new ServiceSkillLevelDto()))
             .ForMember(dest => dest.SeniorSkill,
-                opt => opt.MapFrom((src, _, dest) => MapServiceSkillLevel(src.ServiceSkillLevels, SkillLevel.Senior)));
+                opt => opt.MapFrom((src, _, dest) => MapServiceSkillLevel(src.ServiceSkillLevels, SkillLevel.Senior) ?? new ServiceSkillLevelDto()));
 
         CreateMap<ServiceDto, UpsertServiceCommand>();
 
@@ -31,7 +31,9 @@ public sealed class ServiceProfile : Profile
             }));
     }
 
-    public static ServiceSkillLevelDto MapServiceSkillLevel(ICollection<ServiceSkillLevel> serviceSkillLevels, SkillLevel skillLevel)
+    public static ServiceSkillLevelDto? MapServiceSkillLevel(
+        ICollection<ServiceSkillLevel> serviceSkillLevels,
+        SkillLevel skillLevel)
     {
         var service = serviceSkillLevels
             .SingleOrDefault(x => x.SkillLevel == skillLevel);
@@ -46,18 +48,21 @@ public sealed class ServiceProfile : Profile
             };
         }
 
-        return default!;
+        return null;
     }
 
-    public static void ConvertSkillLevel(in List<ServiceSkillLevel> skillLevels, ServiceSkillLevelDto? ServiceSkillLevelDto, SkillLevel skillLevel)
+    public static void ConvertSkillLevel(
+        in List<ServiceSkillLevel> skillLevels,
+        ServiceSkillLevelDto? serviceSkillLevelDto,
+        SkillLevel skillLevel)
     {
-        if (ServiceSkillLevelDto != null)
+        if (serviceSkillLevelDto != null)
         {
             skillLevels.Add(new()
             {
-                Id = ServiceSkillLevelDto.Id,
-                Cost = ServiceSkillLevelDto.Cost,
-                MinutesDuration = ServiceSkillLevelDto.MinutesDuration,
+                Id = serviceSkillLevelDto.Id,
+                Cost = serviceSkillLevelDto.Cost,
+                MinutesDuration = serviceSkillLevelDto.MinutesDuration,
                 SkillLevel = skillLevel
             });
         }

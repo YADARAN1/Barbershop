@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:edit="clr-namespace:Barbershop.UI.ViewModels.Pages.Edit"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:local="clr-namespace:Barbershop.UI.Views.Pages.Edit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="clr-namespace:Barbershop.Contracts.Models;assembly=Barbershop.Contracts"
     Width="900"
@@ -51,7 +50,8 @@
                                 Height="30"
                                 Margin="10,0,0,0"
                                 Source="{StaticResource TimerImage}" />
-                            <TextBlock VerticalAlignment="Center" Text="{Binding MinutesDuration, Converter={converters:IntToTimeStringConverter}}" />
+                            <TextBlock VerticalAlignment="Center"
+                                       Text="{Binding MinutesDuration, Converter={converters:IntToTimeStringConverter}}" />
                         </hc:SimpleStackPanel>
 
                         <hc:SimpleStackPanel
@@ -62,7 +62,8 @@
                                 Height="30"
                                 Margin="10,0,0,0"
                                 Source="{StaticResource MoneyImage}" />
-                            <TextBlock VerticalAlignment="Center" Text="{Binding Cost, Converter={converters:DecimalToCurrencyConverter}}" />
+                            <TextBlock VerticalAlignment="Center"
+                                       Text="{Binding DiscountedCost, Converter={converters:DecimalToCurrencyConverter}}" />
                         </hc:SimpleStackPanel>
 
                     </Grid>
@@ -90,11 +91,13 @@
                         d:Text="Фамилия Имя Отчество"
                         FontSize="16"
                         Text="{Binding Item.Client, Mode=OneWay}" />
-                    <TextBlock Margin="0,10,0,0" Text="{Binding Item.Client.Birthday, Mode=OneWay, StringFormat=dd.MM.yyyy}" />
+                    <TextBlock Margin="0,10,0,0"
+                               Text="{Binding Item.Client.Birthday, Mode=OneWay, StringFormat=dd.MM.yyyy}" />
                 </StackPanel>
             </GroupBox>
 
-            <GroupBox d:Header="Старший мастер" Header="{Binding Item.Barber.SkillLevel, Converter={converters:EnumToDescriptionConverter}}">
+            <GroupBox d:Header="Старший мастер"
+                      Header="{Binding Item.Barber.SkillLevel, Converter={converters:EnumToDescriptionConverter}}">
                 <TextBlock
                     d:Text="Фамилия Имя Отчество"
                     FontSize="16"
@@ -145,7 +148,8 @@
                 </ListBox>
 
                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                    <Button hc:IconElement.Geometry="{StaticResource LeftGeometry}" Command="{Binding RemoveProductCommand}" />
+                    <Button hc:IconElement.Geometry="{StaticResource LeftGeometry}"
+                            Command="{Binding RemoveProductCommand}" />
                     <Button
                         Margin="0,10,0,0"
                         hc:IconElement.Geometry="{StaticResource RightGeometry}"
@@ -192,7 +196,7 @@
                                 hc:TitleElement.TitlePlacement="Left"
                                 BorderThickness="0"
                                 FontSize="16"
-                                Text="{Binding Item.TotalServicesPrice, Mode=OneWay, Converter={converters:DecimalToCurrencyConverter}}" />
+                                Text="{Binding DiscountedServicesCost, Mode=OneWay, Converter={converters:DecimalToCurrencyConverter}}" />
                             <hc:TextBox
                                 hc:TitleElement.Title="Товары:"
                                 hc:TitleElement.TitlePlacement="Left"

@@ -1,9 +1,9 @@
 ﻿using Barbershop.Contracts.Models;
-using Barbershop.Services;
 using Barbershop.UI.ViewModels.Base;
 using DevExpress.Mvvm;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Barbershop.Services.Services;
 
 namespace Barbershop.UI.ViewModels.Pages;
 

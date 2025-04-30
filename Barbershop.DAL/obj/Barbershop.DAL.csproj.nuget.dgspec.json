@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.DAL\\Barbershop.DAL.csproj": {}
+    "D:\\Projects\\GitHub\\Barbershop\\Barbershop.DAL\\Barbershop.DAL.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.DAL\\Barbershop.DAL.csproj": {
+    "D:\\Projects\\GitHub\\Barbershop\\Barbershop.DAL\\Barbershop.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.DAL\\Barbershop.DAL.csproj",
+        "projectUniqueName": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.DAL\\Barbershop.DAL.csproj",
         "projectName": "Barbershop.DAL",
-        "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.DAL\\Barbershop.DAL.csproj",
+        "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.DAL\\Barbershop.DAL.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.DAL\\obj\\",
+        "outputPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -27,8 +27,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
-                "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj"
+              "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
+                "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj"
               }
             }
           }
@@ -102,14 +102,14 @@
         }
       }
     },
-    "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
+    "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
+        "projectUniqueName": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
         "projectName": "Barbershop.Domain",
-        "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
+        "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\obj\\",
+        "outputPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

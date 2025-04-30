@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj": {}
+    "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj": {
+    "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
+        "projectUniqueName": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
         "projectName": "Barbershop.Contracts",
-        "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
+        "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\obj\\",
+        "outputPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -84,14 +84,14 @@
         }
       }
     },
-    "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
+    "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
+        "projectUniqueName": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
         "projectName": "Barbershop.Domain",
-        "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
+        "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\obj\\",
+        "outputPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -164,14 +164,14 @@
         }
       }
     },
-    "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj": {
+    "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
+        "projectUniqueName": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
         "projectName": "Barbershop.Services.Abstractions",
-        "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
+        "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services.Abstractions\\obj\\",
+        "outputPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services.Abstractions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -187,11 +187,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj": {
-                "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj"
+              "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj": {
+                "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj"
               },
-              "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
-                "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj"
+              "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
+                "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j8t3p4MrDxU=",
+  "dgSpecHash": "ynC3c680ifo=",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
+  "projectFilePath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\devexpressmvvm\\23.2.3\\devexpressmvvm.23.2.3.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",

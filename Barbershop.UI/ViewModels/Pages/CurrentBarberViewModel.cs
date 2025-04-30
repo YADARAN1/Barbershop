@@ -1,5 +1,5 @@
 ﻿using Barbershop.Contracts.Models;
-using Barbershop.Services;
+using Barbershop.Services.Services;
 using Barbershop.UI.ViewModels.Base;
 using DevExpress.Mvvm;
 

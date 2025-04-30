@@ -1,5 +1,4 @@
 ﻿using Barbershop.Contracts.Models;
-using Barbershop.Services;
 using Barbershop.UI.Converters;
 using Barbershop.UI.ViewModels.Base;
 using DevExpress.Mvvm;
@@ -10,6 +9,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using Barbershop.Contracts.Commands;
+using Barbershop.Services.Services;
 
 namespace Barbershop.UI.ViewModels.Pages.Edit;
 
@@ -25,16 +26,23 @@ public sealed class CreateOrderViewModel : BaseViewModel
     private IReadOnlyList<BarberDto> _barbers;
     private IReadOnlyList<ClientDto> _clients;
 
+    private const decimal BirthdayDiscountRate = 0.15m;
+
     public int SelectedTabIndex
     {
         get => GetValue<int>(nameof(SelectedTabIndex));
-        set => SetValue(value, () => { if (value == 3) FilterTimeSlots(); }, nameof(SelectedTabIndex));
+        set => SetValue(value, () =>
+        {
+            if (value == 3) FilterTimeSlots();
+        }, nameof(SelectedTabIndex));
     }
+
     public string SearchBarberText
     {
         get => GetValue<string>(nameof(SearchBarberText));
         set => SetValue(value, () => BarbersView.Refresh(), nameof(SearchBarberText));
     }
+
     public string SearchClientText
     {
         get => GetValue<string>(nameof(SearchClientText));
@@ -46,6 +54,7 @@ public sealed class CreateOrderViewModel : BaseViewModel
         get => GetValue<decimal>(nameof(TotalCost));
         set => SetValue(value, nameof(TotalCost));
     }
+
     public int TotalMinutes
     {
         get => GetValue<int>(nameof(TotalMinutes));
@@ -60,15 +69,18 @@ public sealed class CreateOrderViewModel : BaseViewModel
         get => GetValue<DateTime?>(nameof(SelectedDate));
         set => SetValue(value, () =>
         {
+            ComputeBirthdayDiscount(); // <== добавь это
             FilterTimeSlots();
             RaisePropertyChanged(nameof(CanCreateOrder));
         }, nameof(SelectedDate));
     }
+
     public TimeSlot? SelectedTimeSlot
     {
         get => GetValue<TimeSlot>(nameof(SelectedTimeSlot));
         set => SetValue(value, () => RaisePropertyChanged(nameof(CanCreateOrder)), nameof(SelectedTimeSlot));
     }
+
     public bool CanCreateOrder => SelectedDate != null && SelectedTimeSlot != null;
 
     public IReadOnlyList<TimeSlot> TimeSlots { get; set; }
@@ -85,13 +97,39 @@ public sealed class CreateOrderViewModel : BaseViewModel
             },
             nameof(SelectedBarber));
     }
+
     public ClientDto SelectedClient
     {
         get => GetValue<ClientDto>(nameof(SelectedClient));
-        set => SetValue(value, nameof(SelectedClient));
+        set => SetValue(value, () => OnClientChanged(), nameof(SelectedClient));
+    }
+
+    public bool HasBirthdayDiscount
+    {
+        get => GetValue<bool>(nameof(HasBirthdayDiscount));
+        private set => SetValue(value, nameof(HasBirthdayDiscount));
+    }
+
+    public DateTime? BirthdayDiscountEnds
+    {
+        get => GetValue<DateTime?>(nameof(BirthdayDiscountEnds));
+        private set => SetValue(value, nameof(BirthdayDiscountEnds));
+    }
+
+    public decimal BaseTotalCost
+    {
+        get => GetValue<decimal>(nameof(BaseTotalCost));
+        set => SetValue(value, nameof(BaseTotalCost));
+    }
+
+    private void OnClientChanged()
+    {
+        ComputeBirthdayDiscount();
+        RecalculateTotalCost();
     }
 
     public ObservableCollection<ServiceDto> Services { get; set; } = new();
+
     public ServiceDto ServiceToSelect
     {
         get => GetValue<ServiceDto>(nameof(ServiceToSelect));
@@ -99,6 +137,7 @@ public sealed class CreateOrderViewModel : BaseViewModel
     }
 
     public ObservableCollection<ServiceDto> SelectedServices { get; set; } = new();
+
     public ServiceDto SelectedService
     {
         get => GetValue<ServiceDto>(nameof(SelectedService));
@@ -113,7 +152,8 @@ public sealed class CreateOrderViewModel : BaseViewModel
 
     public event Action OnOrderCreateCall;
 
-    public CreateOrderViewModel(BarberService barberService, ClientService clientService, OrderService orderService, OfferService offerService)
+    public CreateOrderViewModel(BarberService barberService, ClientService clientService, OrderService orderService,
+        OfferService offerService)
     {
         _barberService = barberService;
         _clientService = clientService;
@@ -128,7 +168,44 @@ public sealed class CreateOrderViewModel : BaseViewModel
         SelectServiceCommand = new DelegateCommand(SelectService, () => ServiceToSelect != null);
         RemoveSelectedServiceCommand = new DelegateCommand(RemoveSelectedService, () => SelectedService != null);
         SelectTimeSlotCommand = new DelegateCommand<RoutedEventArgs>(SelectTimeSlot);
-        CreateOrderCommand = new DelegateCommand(CreateOrder);
+        CreateOrderCommand = new AsyncCommand(CreateOrder, () => CanCreateOrder);
+    }
+
+    private void ComputeBirthdayDiscount()
+    {
+        HasBirthdayDiscount = false;
+        BirthdayDiscountEnds = null;
+
+        if (SelectedClient?.Birthday is DateTime bd && SelectedDate is DateTime selected)
+        {
+            var dateOfOrder = selected.Date;
+
+            // День рождения клиента в текущем году
+            var birthdayThisYear = new DateTime(dateOfOrder.Year, bd.Month, bd.Day);
+
+            var periodStart = birthdayThisYear;
+            var periodEnd = birthdayThisYear.AddDays(14);
+
+            if (dateOfOrder >= periodStart && dateOfOrder < periodEnd)
+            {
+                HasBirthdayDiscount = true;
+                BirthdayDiscountEnds = periodEnd;
+            }
+        }
+
+        RaisePropertiesChanged(nameof(HasBirthdayDiscount), nameof(BirthdayDiscountEnds));
+    }
+
+    private void RecalculateTotalCost()
+    {
+        var baseTotal = SelectedServices.Sum(srv =>
+            ServiceDtoToServiceConverter.MapService(srv, SelectedBarber.SkillLevel).Cost);
+
+        BaseTotalCost = baseTotal;
+
+        TotalCost = HasBirthdayDiscount
+            ? Math.Round(baseTotal * (1 - BirthdayDiscountRate), 2)
+            : baseTotal;
     }
 
     private async Task LoadView()
@@ -152,6 +229,7 @@ public sealed class CreateOrderViewModel : BaseViewModel
             {
                 timeSlots.Add(new(startTime.AddMinutes(i * 30)));
             }
+
             TimeSlots = new ObservableCollection<TimeSlot>(timeSlots);
 
             RaisePropertiesChanged(nameof(ClientsView), nameof(BarbersView), nameof(Services), nameof(TimeSlots));
@@ -196,6 +274,7 @@ public sealed class CreateOrderViewModel : BaseViewModel
             .Where(x => x.Contains(SearchClientText, StringComparison.OrdinalIgnoreCase))
             .Any();
     }
+
     private bool FilterBarber(object obj)
     {
         var barber = obj as BarberDto;
@@ -219,24 +298,30 @@ public sealed class CreateOrderViewModel : BaseViewModel
 
     private void SelectService()
     {
-        var selectedServiceSkillLevel = ServiceDtoToServiceConverter.MapService(ServiceToSelect, SelectedBarber.SkillLevel);
+        var selectedServiceSkillLevel =
+            ServiceDtoToServiceConverter.MapService(ServiceToSelect, SelectedBarber.SkillLevel);
 
         SelectedServices.Add(ServiceToSelect);
         Services.Remove(ServiceToSelect);
 
         TotalCost += selectedServiceSkillLevel.Cost;
         TotalMinutes += selectedServiceSkillLevel.MinutesDuration;
+
+        RecalculateTotalCost();
     }
 
     private void RemoveSelectedService()
     {
-        var selectedServiceSkillLevel = ServiceDtoToServiceConverter.MapService(SelectedService, SelectedBarber.SkillLevel);
+        var selectedServiceSkillLevel =
+            ServiceDtoToServiceConverter.MapService(SelectedService, SelectedBarber.SkillLevel);
 
         Services.Add(SelectedService);
         SelectedServices.Remove(SelectedService);
 
         TotalCost -= selectedServiceSkillLevel.Cost;
         TotalMinutes -= selectedServiceSkillLevel.MinutesDuration;
+
+        RecalculateTotalCost();
     }
 
     private async Task FilterTimeSlots()
@@ -320,9 +405,43 @@ public sealed class CreateOrderViewModel : BaseViewModel
         SelectedTimeSlot = (eventArgs.Source as RadioButton).DataContext as TimeSlot;
     }
 
-    private void CreateOrder()
+    private async Task CreateOrder()
     {
-        SelectedDate = new DateTime(SelectedDate.Value.Year, SelectedDate.Value.Month, SelectedDate.Value.Day, SelectedTimeSlot.Time.Hour, SelectedTimeSlot.Time.Minute, 0);
+        // Устанавливаем время начала заказа
+        var orderDateTime = new DateTime(
+            SelectedDate.Value.Year,
+            SelectedDate.Value.Month,
+            SelectedDate.Value.Day,
+            SelectedTimeSlot.Time.Hour,
+            SelectedTimeSlot.Time.Minute,
+            0,
+            DateTimeKind.Local);
+
+        var utcStart = orderDateTime.ToUniversalTime();
+
+        // Формируем список ID услуг
+        var skillLevelIds = SelectedServices.Select(svc =>
+                SelectedBarber.SkillLevel switch
+                {
+                    BarberSkillLevel.Junior => svc.JuniorSkill.Id,
+                    BarberSkillLevel.Middle => svc.MiddleSkill.Id,
+                    BarberSkillLevel.Senior => svc.SeniorSkill.Id,
+                    _ => throw new InvalidOperationException()
+                })
+            .ToList();
+
+        // Создаём команду
+        var command = new UpsertOrderCommand
+        {
+            CreatedOn = utcStart,
+            BarberId = SelectedBarber.Id,
+            ClientId = SelectedClient.Id,
+            ServiceSkillLevelIds = skillLevelIds,
+            DiscountApplied = HasBirthdayDiscount,
+            DiscountRate = HasBirthdayDiscount ? BirthdayDiscountRate : 0m
+        };
+
+        await _orderService.Create(command);
         OnOrderCreateCall?.Invoke();
     }
 }

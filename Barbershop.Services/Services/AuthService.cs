@@ -6,7 +6,7 @@ using Barbershop.Services.Abstractions;
 using Barbershop.Services.Abstractions.Exceptions;
 using Barbershop.Services.Helpers;
 
-namespace Barbershop.Services;
+namespace Barbershop.Services.Services;
 
 public class AuthService : IAuthService
 {

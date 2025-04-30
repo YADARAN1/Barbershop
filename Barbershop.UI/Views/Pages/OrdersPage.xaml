@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:local="clr-namespace:Barbershop.UI.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Barbershop.UI.ViewModels.Pages"
     x:Name="page"
@@ -31,7 +30,6 @@
         </hc:EventTrigger>
 
     </hc:Interaction.Triggers>
-
 
 
     <Grid>
@@ -86,7 +84,6 @@
                         <RadioButton Content="Отменен" IsChecked="{Binding SelectCanceled}" />
 
                     </UniformGrid>
-
 
 
                     <hc:CheckComboBox
@@ -192,7 +189,7 @@
                     <TextBlock
                         FontSize="16"
                         FontWeight="DemiBold"
-                        Text="Заказы" />
+                        Text="Запись" />
                 </GroupBox.Header>
 
                 <hc:ScrollViewer>
@@ -223,18 +220,19 @@
 
                                                     <Grid Margin="0,5">
                                                         <Grid.Resources>
-                                                            <Style BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="TextBlock">
+                                                            <Style BasedOn="{StaticResource TextBlockBaseStyle}"
+                                                                   TargetType="TextBlock">
                                                                 <Setter Property="HorizontalAlignment" Value="Center" />
                                                                 <Setter Property="VerticalAlignment" Value="Center" />
                                                             </Style>
                                                         </Grid.Resources>
 
                                                         <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="50"/>
-                                                            <ColumnDefinition Width="220"/>
+                                                            <ColumnDefinition Width="50" />
+                                                            <ColumnDefinition Width="220" />
                                                             <ColumnDefinition />
                                                             <ColumnDefinition />
-                                                            <ColumnDefinition Width="300"/>
+                                                            <ColumnDefinition Width="300" />
                                                             <ColumnDefinition />
                                                             <ColumnDefinition />
                                                         </Grid.ColumnDefinitions>
@@ -243,13 +241,14 @@
 
                                                         <StackPanel Grid.Column="1">
 
-                                                            <StackPanel Orientation="Horizontal" >
+                                                            <StackPanel Orientation="Horizontal">
                                                                 <Image Width="28" Source="{StaticResource KnifeImage}" />
                                                                 <TextBlock Text="{Binding Barber, Mode=OneWay}" />
                                                             </StackPanel>
 
-                                                            <StackPanel Orientation="Horizontal" >
-                                                                <Image Width="28" Source="{StaticResource ArmchairImage}" />
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Image Width="28"
+                                                                       Source="{StaticResource ArmchairImage}" />
                                                                 <TextBlock Text="{Binding Client, Mode=OneWay}" />
                                                             </StackPanel>
                                                         </StackPanel>
@@ -257,23 +256,29 @@
                                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
                                                             <Image Width="28" Source="{StaticResource TimerImage}" />
                                                             <TextBlock>
-                                                                <Run Language="ru" Text="{Binding BeginDateTime, Mode=OneWay, StringFormat=t}" />
+                                                                <Run Language="ru"
+                                                                     Text="{Binding BeginDateTime, Mode=OneWay, StringFormat=t}" />
                                                                 <LineBreak />
-                                                                <Run Language="ru" Text="{Binding EndDateTime, Mode=OneWay, StringFormat=t}" />
+                                                                <Run Language="ru"
+                                                                     Text="{Binding EndDateTime, Mode=OneWay, StringFormat=t}" />
                                                             </TextBlock>
                                                         </StackPanel>
 
                                                         <StackPanel Grid.Column="3" Orientation="Horizontal">
                                                             <Image Width="28" Source="{StaticResource MoneyImage}" />
-                                                            <TextBlock Text="{Binding TotalPrice, Mode=OneWay, Converter={converters:DecimalToCurrencyConverter}}" />
+                                                            <TextBlock
+                                                                Text="{Binding FinalPrice, Converter={converters:DecimalToCurrencyConverter}}" />
                                                         </StackPanel>
 
                                                         <StackPanel Grid.Column="4" Orientation="Horizontal">
                                                             <Image Width="28" Source="{StaticResource ProductImage}" />
-                                                            <TextBlock Text="{Binding Products, Converter={converters:ProductsToStringConverter}, Mode=OneWay}" Width="100" TextWrapping="Wrap"/>
+                                                            <TextBlock
+                                                                Text="{Binding Products, Converter={converters:ProductsToStringConverter}, Mode=OneWay}"
+                                                                Width="100" TextWrapping="Wrap" />
                                                         </StackPanel>
 
-                                                        <TextBlock Grid.Column="5" Text="{Binding Status, Mode=OneWay, Converter={converters:EnumToDescriptionConverter}}" />
+                                                        <TextBlock Grid.Column="5"
+                                                                   Text="{Binding Status, Mode=OneWay, Converter={converters:EnumToDescriptionConverter}}" />
 
                                                         <StackPanel
                                                             Grid.Column="6"

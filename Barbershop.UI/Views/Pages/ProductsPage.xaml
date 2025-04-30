@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:local="clr-namespace:Barbershop.UI.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Barbershop.UI.ViewModels.Pages"
     Title="ProductsPage"
@@ -120,6 +119,11 @@
                         Command="{Binding EditItemCommand}"
                         CommandParameter="{Binding SelectedItems, ElementName=ItemsGrid}"
                         Content="Редактировать"
+                        Style="{StaticResource ToggleButtonWarning}" />
+                    <ToggleButton
+                        hc:BorderElement.CornerRadius="0"
+                        Command="{Binding ImportFromExcelCommand}"
+                        Content="Импортировать из Excel"
                         Style="{StaticResource ToggleButtonWarning}" />
                     <ToggleButton
                         hc:BorderElement.CornerRadius="0,8,8,0"

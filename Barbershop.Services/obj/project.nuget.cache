@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o17tuVtpDzM=",
+  "dgSpecHash": "SPpBb8Y4u48=",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services\\Barbershop.Services.csproj",
+  "projectFilePath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services\\Barbershop.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper.extensions.enummapping\\3.0.0\\automapper.extensions.enummapping.3.0.0.nupkg.sha512",

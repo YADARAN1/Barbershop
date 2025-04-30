@@ -6,7 +6,7 @@ using Barbershop.Domain.Repositories;
 using Barbershop.Services.Helpers;
 using Microsoft.EntityFrameworkCore;
 
-namespace Barbershop.Services;
+namespace Barbershop.Services.Services;
 
 public class BarberService : EntityService<BarberDto, Barber, UpsertBarberCommand>
 {

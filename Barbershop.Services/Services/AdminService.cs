@@ -5,7 +5,7 @@ using Barbershop.Domain.Models;
 using Barbershop.Domain.Repositories;
 using Barbershop.Services.Helpers;
 
-namespace Barbershop.Services;
+namespace Barbershop.Services.Services;
 
 public sealed class AdminService : EntityService<AdminDto, Admin, UpsertAdminCommand>
 {

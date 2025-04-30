@@ -6,6 +6,10 @@ public class Order : Entity
     public DateTime CreatedOn { get; set; }
     public DateTime? CompletedOn { get; set; }
     public int BarbersGain { get; set; }
+    
+    public bool DiscountApplied { get; set; }
+    
+    public decimal DiscountRate { get; set; }
 
     public int? BarberId { get; set; }
     public virtual Barber? Barber { get; set; }

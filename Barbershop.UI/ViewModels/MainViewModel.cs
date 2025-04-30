@@ -1,7 +1,6 @@
 ﻿using Barbershop.UI.Services;
 using Barbershop.UI.ViewModels.Base;
 using Barbershop.UI.Views.Pages;
-using Barbershop.UI.Views.Pages.Edit;
 using DevExpress.Mvvm;
 using HandyControl.Controls;
 using HandyControl.Data;

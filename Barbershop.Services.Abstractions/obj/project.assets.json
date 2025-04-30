@@ -646,11 +646,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
+      "projectUniqueName": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
       "projectName": "Barbershop.Services.Abstractions",
-      "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
+      "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services.Abstractions\\Barbershop.Services.Abstractions.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Services.Abstractions\\obj\\",
+      "outputPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Services.Abstractions\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -666,11 +666,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj": {
-              "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj"
+            "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj": {
+              "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Contracts\\Barbershop.Contracts.csproj"
             },
-            "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
-              "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj"
+            "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj": {
+              "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj"
             }
           }
         }

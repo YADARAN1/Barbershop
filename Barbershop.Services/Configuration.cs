@@ -1,6 +1,7 @@
 ﻿using Barbershop.Services.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using Barbershop.Services.Services;
 
 namespace Barbershop.Services;
 

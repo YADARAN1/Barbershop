@@ -1,5 +1,4 @@
-﻿using Barbershop.Contracts.Models;
-using Barbershop.UI.ViewModels.Base;
+﻿using Barbershop.UI.ViewModels.Base;
 using Barbershop.UI.ViewModels.Pages.Edit;
 using Barbershop.UI.Views.Pages.Edit;
 using HandyControl.Controls;

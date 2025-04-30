@@ -567,11 +567,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
+      "projectUniqueName": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
       "projectName": "Barbershop.Domain",
-      "projectPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
+      "projectPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\obj\\",
+      "outputPath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -5,7 +5,7 @@ using Barbershop.Domain.Models;
 using Barbershop.Domain.Repositories;
 using Barbershop.Services.Abstractions;
 
-namespace Barbershop.Services;
+namespace Barbershop.Services.Services;
 
 public class EntityService<TEntityDto, TEntity, TCommand> : IEntityService<TEntityDto, TEntity, TCommand>
     where TEntityDto : EntityDto, new()

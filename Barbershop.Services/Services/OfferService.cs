@@ -4,7 +4,7 @@ using Barbershop.Contracts.Models;
 using Barbershop.Domain.Models;
 using Barbershop.Domain.Repositories;
 
-namespace Barbershop.Services;
+namespace Barbershop.Services.Services;
 
 public sealed class OfferService : EntityService<ServiceDto, Service, UpsertServiceCommand>
 {

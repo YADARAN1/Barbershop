@@ -1,15 +1,14 @@
 ﻿using Barbershop.Contracts.Models;
-using Barbershop.Services;
 using Barbershop.UI.Services;
 using Barbershop.UI.ViewModels.Base;
 using Barbershop.UI.ViewModels.Pages.Edit;
 using Barbershop.UI.Views.Pages.Edit;
 using DevExpress.Mvvm;
-using DevExpress.Mvvm.Native;
 using HandyControl.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Barbershop.Services.Services;
 
 namespace Barbershop.UI.ViewModels.Pages;
 
@@ -23,11 +22,13 @@ public sealed class OrdersPageViewModel : BaseViewModel
 
     public ObservableCollection<IGrouping<string, OrderDto>> Orders { get; private set; }
     public int OrdersCount { get; set; }
+
     public ObservableCollection<BarberDto> Barbers
     {
         get => GetValue<ObservableCollection<BarberDto>>(nameof(Barbers));
         set => SetValue(value, nameof(Barbers));
     }
+
     public ObservableCollection<ClientDto> Clients
     {
         get => GetValue<ObservableCollection<ClientDto>>(nameof(Clients));
@@ -45,16 +46,22 @@ public sealed class OrdersPageViewModel : BaseViewModel
             }
         }, nameof(WithoutDateSelected));
     }
+
     public bool TodayFilterSelected
     {
         get => GetValue<bool>(nameof(TodayFilterSelected));
-        set => SetValue(value, () => { if (value) FromDateSelected = ToDateSelected = null; }, nameof(TodayFilterSelected));
+        set => SetValue(value, () =>
+        {
+            if (value) FromDateSelected = ToDateSelected = null;
+        }, nameof(TodayFilterSelected));
     }
+
     public DateTime? FromDateSelected
     {
         get => GetValue<DateTime?>(nameof(FromDateSelected));
         set => SetValue(value, ResetDateFilter, nameof(FromDateSelected));
     }
+
     public DateTime? ToDateSelected
     {
         get => GetValue<DateTime?>(nameof(ToDateSelected));
@@ -127,7 +134,8 @@ public sealed class OrdersPageViewModel : BaseViewModel
         ((obj as object[])[1] as CheckComboBox).SelectedItems.Clear();
 
         OrdersCount = _orders.Count;
-        Orders = new ObservableCollection<IGrouping<string, OrderDto>>(_orders.GroupBy(x => x.BeginDateTime.ToString("D")));
+        Orders = new ObservableCollection<IGrouping<string, OrderDto>>(_orders.GroupBy(x =>
+            x.BeginDateTime.ToString("D")));
         SelectAll = true;
 
         var barbers = new List<BarberDto>(_orders.Select(x => x.Barber))
@@ -151,8 +159,10 @@ public sealed class OrdersPageViewModel : BaseViewModel
 
         if (arg != null)
         {
-            var selectedBarbers = ((System.Collections.IList)(arg as object[])[0]).Cast<BarberDto>().Select(x => x.Id);
-            var selectedClients = ((System.Collections.IList)(arg as object[])[1]).Cast<ClientDto>().Select(x => x.Id);
+            var selectedBarbers = ((System.Collections.IList)(arg as object[])[0])
+                .Cast<BarberDto>().Select(x => x.Id);
+            var selectedClients = ((System.Collections.IList)(arg as object[])[1])
+                .Cast<ClientDto>().Select(x => x.Id);
 
             if (selectedBarbers.Any())
                 orders = orders.Where(x => selectedBarbers.Contains(x.Barber?.Id ?? -1));
@@ -184,7 +194,8 @@ public sealed class OrdersPageViewModel : BaseViewModel
         }
 
         OrdersCount = orders.Count();
-        Orders = new ObservableCollection<IGrouping<string, OrderDto>>(orders.GroupBy(x => x.BeginDateTime.ToString("D")));
+        Orders = new ObservableCollection<IGrouping<string, OrderDto>>(
+            orders.GroupBy(x => x.BeginDateTime.ToString("D")));
         RaisePropertiesChanged();
     }
 
@@ -239,14 +250,6 @@ public sealed class OrdersPageViewModel : BaseViewModel
             var vm = Container.ServiceProvider.GetRequiredService<CreateOrderViewModel>();
             if (_dialogService.ShowDialog(vm))
             {
-                await _ordersService.Create(new()
-                {
-                    CreatedOn = vm.SelectedDate.Value,
-                    BarberId = vm.SelectedBarber.Id,
-                    ClientId = vm.SelectedClient.Id,
-                    ServiceIds = vm.SelectedServices.Select(x => x.Id).ToList()
-                });
-
                 await LoadView();
                 await FilterOrders();
             }

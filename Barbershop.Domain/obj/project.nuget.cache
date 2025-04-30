@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PwsplMpyX6U=",
+  "dgSpecHash": "LG50P1xTf9Y=",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Hardwork\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
+  "projectFilePath": "D:\\Projects\\GitHub\\Barbershop\\Barbershop.Domain\\Barbershop.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",
