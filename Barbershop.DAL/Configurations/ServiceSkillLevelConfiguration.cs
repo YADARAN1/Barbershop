@@ -18,7 +18,7 @@ internal class ServiceSkillLevelConfiguration : IEntityTypeConfiguration<Service
          .HasOne(s => s.Service)
          .WithMany(o => o.ServiceSkillLevels)
          .HasForeignKey(k => k.ServiceId)
-         .OnDelete(DeleteBehavior.NoAction);
+         .OnDelete(DeleteBehavior.Cascade);
 
         builder.Property(e => e.SkillLevel).HasConversion(new EnumToStringConverter<SkillLevel>());
     }

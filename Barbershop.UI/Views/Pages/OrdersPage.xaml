@@ -195,7 +195,6 @@
                 <hc:ScrollViewer>
                     <ItemsControl d:ItemsSource="{d:SampleData}" ItemsSource="{Binding Orders, Mode=OneWay}">
                         <ItemsControl.ItemTemplate>
-                            <!--  Группировка по дням  -->
                             <DataTemplate>
 
                                 <Expander
@@ -228,60 +227,122 @@
                                                         </Grid.Resources>
 
                                                         <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition Width="50" />
-                                                            <ColumnDefinition Width="220" />
-                                                            <ColumnDefinition />
-                                                            <ColumnDefinition />
-                                                            <ColumnDefinition Width="300" />
-                                                            <ColumnDefinition />
-                                                            <ColumnDefinition />
+                                                            <ColumnDefinition Width="Auto" />    <!-- 0: Id -->
+                                                            <ColumnDefinition Width="2*" />
+                                                            <!-- 1: Barber+Client -->
+                                                            <ColumnDefinition Width="*" />       <!-- 2: Time -->
+                                                            <ColumnDefinition Width="*" />       <!-- 3: Price -->
+                                                            <ColumnDefinition Width="*" />      <!-- 4: Products -->
+                                                            <ColumnDefinition Width="*" />      <!-- 5: Services -->
+                                                            <ColumnDefinition Width="*" />    <!-- 6: Status -->
+                                                            <ColumnDefinition Width="*" />    <!-- 7: Buttons -->
                                                         </Grid.ColumnDefinitions>
 
-                                                        <TextBlock Text="{Binding Id, Mode=OneWay}" />
+                                                        <TextBlock Grid.Column="0"
+                                                                   Text="{Binding Id}"
+                                                                   FontSize="16"
+                                                                   VerticalAlignment="Center"
+                                                                   Margin="8,0" />
 
-                                                        <StackPanel Grid.Column="1">
-
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <Image Width="28" Source="{StaticResource KnifeImage}" />
-                                                                <TextBlock Text="{Binding Barber, Mode=OneWay}" />
+                                                        <!-- 1: Barber + Client -->
+                                                        <StackPanel Grid.Column="1"
+                                                                    Orientation="Vertical"
+                                                                    Margin="8,0">
+                                                            <StackPanel Orientation="Horizontal" Margin="0,2">
+                                                                <Image Width="28" Height="28"
+                                                                       Source="{StaticResource KnifeImage}" />
+                                                                <TextBlock Text="{Binding Barber}"
+                                                                           FontSize="16"
+                                                                           Margin="8,0" />
                                                             </StackPanel>
-
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <Image Width="28"
+                                                            <StackPanel Orientation="Horizontal" Margin="0,2">
+                                                                <Image Width="28" Height="28"
                                                                        Source="{StaticResource ArmchairImage}" />
-                                                                <TextBlock Text="{Binding Client, Mode=OneWay}" />
+                                                                <TextBlock Text="{Binding Client}"
+                                                                           FontSize="16"
+                                                                           Margin="8,0" />
                                                             </StackPanel>
                                                         </StackPanel>
 
-                                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
-                                                            <Image Width="28" Source="{StaticResource TimerImage}" />
-                                                            <TextBlock>
-                                                                <Run Language="ru"
-                                                                     Text="{Binding BeginDateTime, Mode=OneWay, StringFormat=t}" />
-                                                                <LineBreak />
-                                                                <Run Language="ru"
-                                                                     Text="{Binding EndDateTime, Mode=OneWay, StringFormat=t}" />
-                                                            </TextBlock>
+                                                        <!-- 2: Time -->
+                                                        <StackPanel Grid.Column="2"
+                                                                    Orientation="Horizontal"
+                                                                    HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Center"
+                                                                    Margin="8,0">
+                                                            <Image Width="28" Height="28"
+                                                                   Source="{StaticResource TimerImage}" />
+                                                            <StackPanel Orientation="Vertical" Margin="8,0,0,0">
+                                                                <TextBlock
+                                                                    Text="{Binding BeginDateTime, StringFormat=t}"
+                                                                    FontSize="16"
+                                                                    HorizontalAlignment="Center" />
+                                                                <TextBlock
+                                                                    Text="{Binding EndDateTime,   StringFormat=t}"
+                                                                    FontSize="16"
+                                                                    HorizontalAlignment="Center" />
+                                                            </StackPanel>
                                                         </StackPanel>
 
-                                                        <StackPanel Grid.Column="3" Orientation="Horizontal">
-                                                            <Image Width="28" Source="{StaticResource MoneyImage}" />
+                                                        <!-- 3: Price -->
+                                                        <StackPanel Grid.Column="3"
+                                                                    Orientation="Horizontal"
+                                                                    HorizontalAlignment="Center"
+                                                                    VerticalAlignment="Center"
+                                                                    Margin="8,0">
+                                                            <Image Width="28" Height="28"
+                                                                   Source="{StaticResource MoneyImage}" />
                                                             <TextBlock
-                                                                Text="{Binding FinalPrice, Converter={converters:DecimalToCurrencyConverter}}" />
+                                                                Text="{Binding FinalPrice, Converter={converters:DecimalToCurrencyConverter}}"
+                                                                FontSize="16"
+                                                                Margin="8,0" />
                                                         </StackPanel>
 
-                                                        <StackPanel Grid.Column="4" Orientation="Horizontal">
-                                                            <Image Width="28" Source="{StaticResource ProductImage}" />
+                                                        <!-- 4: Products -->
+                                                        <StackPanel Grid.Column="4"
+                                                                    Orientation="Horizontal"
+                                                                    Margin="8,0">
+                                                            <Image Width="28" Height="28"
+                                                                   Source="{StaticResource ProductImage}" />
                                                             <TextBlock
-                                                                Text="{Binding Products, Converter={converters:ProductsToStringConverter}, Mode=OneWay}"
-                                                                Width="100" TextWrapping="Wrap" />
+                                                                Text="{Binding Products, Converter={converters:ProductsToStringConverter}}"
+                                                                FontSize="16"
+                                                                TextWrapping="Wrap"
+                                                                Margin="8,0" />
                                                         </StackPanel>
 
-                                                        <TextBlock Grid.Column="5"
-                                                                   Text="{Binding Status, Mode=OneWay, Converter={converters:EnumToDescriptionConverter}}" />
+                                                        <!-- 5: Services -->
+                                                        <StackPanel Grid.Column="5"
+                                                                    Orientation="Vertical"
+                                                                    Margin="8,0"
+                                                                    MaxWidth="300">
+                                                            <ItemsControl ItemsSource="{Binding Services}">
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <StackPanel Orientation="Horizontal"
+                                                                            Margin="0,4">
+                                                                            <Image Width="24" Height="24"
+                                                                                Source="{StaticResource ServiceImage}" />
+                                                                            <TextBlock Text="{Binding Name}"
+                                                                                FontSize="16"
+                                                                                Margin="8,0,0,0"
+                                                                                TextTrimming="CharacterEllipsis" />
+                                                                        </StackPanel>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                        </StackPanel>
+
+                                                        <!-- 6: Status -->
+                                                        <TextBlock Grid.Column="6"
+                                                                   Text="{Binding Status, Converter={converters:EnumToDescriptionConverter}}"
+                                                                   FontSize="16"
+                                                                   VerticalAlignment="Center"
+                                                                   Margin="8,0" />
 
                                                         <StackPanel
-                                                            Grid.Column="6"
+                                                            Grid.Column="7"
+                                                            Margin="8,0"
                                                             VerticalAlignment="Center"
                                                             IsEnabled="{Binding Converter={converters:EnableEditOrderConverter}}"
                                                             Orientation="Horizontal">
@@ -347,6 +408,21 @@
                             <TextBlock Text="{Binding OrdersCount, Mode=OneWay}" />
                         </StackPanel>
                     </Label>
+                </StackPanel>
+                
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Button Content="Отчет: Мастера"
+                            Margin="10,0, 10, 0"
+                            Command="{Binding PrintPopularBarbersCommand}"
+                            Style="{StaticResource ButtonSuccess}" />
+                    <Button Content="Отчет: Услуги"
+                            Margin="10,0, 10, 0"
+                            Command="{Binding PrintPopularServicesCommand}"
+                            Style="{StaticResource ButtonSuccess}" />
+                    <Button Content="Отчет: Товары"
+                            Margin="10,0, 10, 0"
+                            Command="{Binding PrintPopularProductsCommand}"
+                            Style="{StaticResource ButtonSuccess}" />
                 </StackPanel>
 
                 <Button

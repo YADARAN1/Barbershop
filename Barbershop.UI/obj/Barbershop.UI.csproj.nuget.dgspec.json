@@ -500,6 +500,14 @@
               "target": "Package",
               "version": "[23.2.3, )"
             },
+            "DocX": {
+              "target": "Package",
+              "version": "[4.0.25105.5786, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.5.0, )"
+            },
             "HandyControls": {
               "target": "Package",
               "version": "[3.5.2, )"

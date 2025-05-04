@@ -1,6 +1,4 @@
-﻿using Barbershop.Contracts.Models;
-
-namespace Barbershop.Contracts.Commands;
+﻿namespace Barbershop.Contracts.Commands;
 
 public class UpsertOrderCommand : IdentifiedCommand
 {

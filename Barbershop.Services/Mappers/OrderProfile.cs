@@ -29,8 +29,14 @@ public class OrderProfile : Profile
                 }
             });
 
-        CreateMap<ServiceSkillLevel, OrderServiceDto>();
+        CreateMap<ServiceSkillLevel, OrderServiceDto>()
+            .ForMember(d => d.Name, opt => opt.MapFrom(s => s.Service.Name))
+            .ForMember(d => d.SkillLevel, opt => opt.MapFrom(s => s.SkillLevel))
+            .ForMember(d => d.MinutesDuration, opt => opt.MapFrom(s => s.MinutesDuration))
+            .ForMember(d => d.Cost, opt => opt.MapFrom(s => s.Cost));
+
         CreateMap<Service, ServiceDto>();
+
         CreateMap<OrderStatus, OrderStatusDto>()
             .ConvertUsingEnumMapping()
             .ReverseMap();

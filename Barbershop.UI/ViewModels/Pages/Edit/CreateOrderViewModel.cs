@@ -66,13 +66,14 @@ public sealed class CreateOrderViewModel : BaseViewModel
 
     public DateTime? SelectedDate
     {
-        get => GetValue<DateTime?>(nameof(SelectedDate));
+        get => GetValue<DateTime?>();
         set => SetValue(value, () =>
         {
-            ComputeBirthdayDiscount(); // <== добавь это
-            FilterTimeSlots();
+            ComputeBirthdayDiscount();
+            RecalculateTotalCost();
+            _ = FilterTimeSlots();
             RaisePropertyChanged(nameof(CanCreateOrder));
-        }, nameof(SelectedDate));
+        });
     }
 
     public TimeSlot? SelectedTimeSlot

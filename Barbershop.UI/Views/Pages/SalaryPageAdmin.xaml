@@ -5,7 +5,6 @@
     xmlns:converters="clr-namespace:Barbershop.UI.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:local="clr-namespace:Barbershop.UI.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Barbershop.UI.ViewModels.Pages"
     Title="SalaryPageAdmin"
@@ -171,41 +170,29 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
-
-                <UniformGrid Grid.Row="1" Columns="2">
-
-                    <StackPanel
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal"
-                        ToolTip="Суммарное время выполненных заказов">
+                <UniformGrid Grid.Row="1" Columns="3">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                         <Image Width="30" Source="{StaticResource TimerImage}" />
-                        <Label
-                            VerticalAlignment="Center"
-                            d:Content="45м."
-                            Content="{Binding TotalMinutes, Converter={converters:IntToTimeStringConverter}}"
-                            FontSize="16"
-                            Style="{StaticResource BaseStyle}" />
+                        <Label VerticalAlignment="Center"
+                               Content="{Binding TotalMinutes, Converter={converters:IntToTimeStringConverter}}"
+                               FontSize="16" Style="{StaticResource BaseStyle}" />
                     </StackPanel>
 
-                    <StackPanel
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal"
-                        ToolTip="Общий заработок за выбранный период">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                         <Image Width="30" Source="{StaticResource MoneyImage}" />
-                        <Label
-                            d:Content="1560 р."
-                            Content="{Binding TotalCost, Converter={converters:DecimalToCurrencyConverter}}"
-                            FontSize="16"
-                            Style="{StaticResource BaseStyle}" />
+                        <Label VerticalAlignment="Center"
+                               Content="{Binding TotalCost, Converter={converters:DecimalToCurrencyConverter}}"
+                               FontSize="16" Style="{StaticResource BaseStyle}" />
                     </StackPanel>
 
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Content="Экспорт отчёта прибыли"
+                                Command="{Binding ExportServicesCostCommand}"
+                                Style="{StaticResource ButtonSuccess}"
+                                Margin="5,0" />
+                    </StackPanel>
                 </UniformGrid>
             </Grid>
-
-
         </GroupBox>
-
     </Grid>
 </Page>

@@ -124,7 +124,7 @@
                         hc:BorderElement.CornerRadius="0"
                         Command="{Binding ImportFromExcelCommand}"
                         Content="Импортировать из Excel"
-                        Style="{StaticResource ToggleButtonWarning}" />
+                        Style="{StaticResource ToggleButtonPrimary}" />
                     <ToggleButton
                         hc:BorderElement.CornerRadius="0,8,8,0"
                         Command="{Binding CreateItemCommand}"

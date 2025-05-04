@@ -262,10 +262,14 @@
                     </Label>
                 </StackPanel>
 
-                <StackPanel
-                    Grid.Column="2"
-                    HorizontalAlignment="Right"
-                    Orientation="Horizontal">
+                <StackPanel Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <ToggleButton
+                        Margin="0,0,10,0"
+                        hc:BorderElement.CornerRadius="8"
+                        Command="{Binding PrintPriceListCommand}"
+                        Content="Печать прайс-листа"
+                        Style="{StaticResource ToggleButtonPrimary}" />
+
                     <ToggleButton
                         hc:BorderElement.CornerRadius="8"
                         Command="{Binding CreateItemCommand}"
