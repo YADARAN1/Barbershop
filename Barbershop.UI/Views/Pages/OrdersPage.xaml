@@ -240,7 +240,6 @@
 
                                                         <TextBlock Grid.Column="0"
                                                                    Text="{Binding Id}"
-                                                                   FontSize="16"
                                                                    VerticalAlignment="Center"
                                                                    Margin="8,0" />
 
@@ -252,14 +251,12 @@
                                                                 <Image Width="28" Height="28"
                                                                        Source="{StaticResource KnifeImage}" />
                                                                 <TextBlock Text="{Binding Barber}"
-                                                                           FontSize="16"
                                                                            Margin="8,0" />
                                                             </StackPanel>
                                                             <StackPanel Orientation="Horizontal" Margin="0,2">
                                                                 <Image Width="28" Height="28"
                                                                        Source="{StaticResource ArmchairImage}" />
                                                                 <TextBlock Text="{Binding Client}"
-                                                                           FontSize="16"
                                                                            Margin="8,0" />
                                                             </StackPanel>
                                                         </StackPanel>
@@ -275,11 +272,9 @@
                                                             <StackPanel Orientation="Vertical" Margin="8,0,0,0">
                                                                 <TextBlock
                                                                     Text="{Binding BeginDateTime, StringFormat=t}"
-                                                                    FontSize="16"
                                                                     HorizontalAlignment="Center" />
                                                                 <TextBlock
                                                                     Text="{Binding EndDateTime,   StringFormat=t}"
-                                                                    FontSize="16"
                                                                     HorizontalAlignment="Center" />
                                                             </StackPanel>
                                                         </StackPanel>
@@ -294,7 +289,6 @@
                                                                    Source="{StaticResource MoneyImage}" />
                                                             <TextBlock
                                                                 Text="{Binding FinalPrice, Converter={converters:DecimalToCurrencyConverter}}"
-                                                                FontSize="16"
                                                                 Margin="8,0" />
                                                         </StackPanel>
 
@@ -306,7 +300,6 @@
                                                                    Source="{StaticResource ProductImage}" />
                                                             <TextBlock
                                                                 Text="{Binding Products, Converter={converters:ProductsToStringConverter}}"
-                                                                FontSize="16"
                                                                 TextWrapping="Wrap"
                                                                 Margin="8,0" />
                                                         </StackPanel>
@@ -324,7 +317,6 @@
                                                                             <Image Width="24" Height="24"
                                                                                 Source="{StaticResource ServiceImage}" />
                                                                             <TextBlock Text="{Binding Name}"
-                                                                                FontSize="16"
                                                                                 Margin="8,0,0,0"
                                                                                 TextTrimming="CharacterEllipsis" />
                                                                         </StackPanel>
@@ -336,7 +328,6 @@
                                                         <!-- 6: Status -->
                                                         <TextBlock Grid.Column="6"
                                                                    Text="{Binding Status, Converter={converters:EnumToDescriptionConverter}}"
-                                                                   FontSize="16"
                                                                    VerticalAlignment="Center"
                                                                    Margin="8,0" />
 
