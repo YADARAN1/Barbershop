@@ -3,7 +3,6 @@
         <ResourceDictionary>
             <BitmapImage x:Key="IconImage" UriSource="..\Images\Icon.ico" />
             <BitmapImage x:Key="MenuImage" UriSource="..\Images\menu.png" />
-
             <BitmapImage x:Key="BarberImage" UriSource="..\Images\barber.png" />
             <BitmapImage x:Key="ClientImage" UriSource="..\Images\client.png" />
             <BitmapImage x:Key="AdminImage" UriSource="..\Images\admin.png" />
@@ -17,7 +16,6 @@
             <BitmapImage x:Key="ArmchairImage" UriSource="..\Images\armchair.png" />
             <BitmapImage x:Key="KnifeImage" UriSource="..\Images\knife.png" />
             <BitmapImage x:Key="DateImage" UriSource="..\Images\date.png" />
-
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

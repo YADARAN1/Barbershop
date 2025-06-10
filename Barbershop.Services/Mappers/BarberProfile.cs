@@ -12,8 +12,7 @@ public class BarberProfile : Profile
         CreateMap<User, BarberDto>();
 
         CreateMap<Barber, BarberDto>()
-            .IncludeMembers(x => x.User)
-            .ForMember(dest => dest.Orders, opt => opt.Ignore());
+            .IncludeMembers(x => x.User);
 
         CreateMap<BarberDto, UpsertBarberCommand>()
             .ForMember(dest => dest.Password,
