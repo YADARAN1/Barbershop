@@ -46,23 +46,21 @@ internal sealed class WindowDialogService : IWindowDialogService
         return false;
     }
 
-    public bool SelectImage(out byte[] imageBytes)
+    public bool SelectImage(out byte[]? imageBytes)
     {
-        var fileDialog = new OpenFileDialog()
+        var dlg = new OpenFileDialog
         {
-            Title = "Выбор изображения",
-            Filter = "Изображение|*.jpg;*.jpeg;*png"
+            Title  = "Выбор изображения",
+            Filter = "Изображения|*.jpg;*.jpeg;*.png"
         };
 
-        var result = fileDialog.ShowDialog();
-
-        if (result.HasValue)
+        if (dlg.ShowDialog() == true)
         {
-            imageBytes = File.ReadAllBytes(fileDialog.FileName);
+            imageBytes = File.ReadAllBytes(dlg.FileName);
             return true;
         }
 
-        imageBytes = default!;
+        imageBytes = null;
         return false;
     }
 }
