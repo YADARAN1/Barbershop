@@ -15,13 +15,13 @@ internal class OrderConfiguration : IEntityTypeConfiguration<Order>
             .HasOne(o => o.Barber)
             .WithMany(b => b.Orders)
             .HasForeignKey(k => k.BarberId)
-            .OnDelete(DeleteBehavior.NoAction);
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder
            .HasOne(o => o.Client)
            .WithMany(b => b.Orders)
            .HasForeignKey(k => k.ClientId)
-           .OnDelete(DeleteBehavior.NoAction);
+           .OnDelete(DeleteBehavior.Cascade);
 
         builder.Property(e => e.OrderStatus).HasConversion(new EnumToStringConverter<OrderStatus>());
     }

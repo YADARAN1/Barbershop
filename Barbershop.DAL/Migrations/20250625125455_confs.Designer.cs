@@ -3,6 +3,7 @@ using System;
 using Barbershop.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Barbershop.DAL.Migrations
 {
     [DbContext(typeof(BarbershopContext))]
-    partial class BarbershopContextModelSnapshot : ModelSnapshot
+    [Migration("20250625125455_confs")]
+    partial class confs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -317,12 +320,12 @@ namespace Barbershop.DAL.Migrations
                     b.HasOne("Barbershop.Domain.Models.Barber", "Barber")
                         .WithMany("Orders")
                         .HasForeignKey("BarberId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Barbershop.Domain.Models.Client", "Client")
                         .WithMany("Orders")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Barber");

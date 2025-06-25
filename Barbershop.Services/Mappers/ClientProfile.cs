@@ -12,8 +12,7 @@ public class ClientProfile : Profile
         CreateMap<User, ClientDto>();
 
         CreateMap<Client, ClientDto>()
-            .IncludeMembers(x => x.User)
-            .ForMember(dest => dest.Orders, opt => opt.Ignore());
+            .IncludeMembers(x => x.User);
 
         CreateMap<ClientDto, UpsertClientCommand>();
 

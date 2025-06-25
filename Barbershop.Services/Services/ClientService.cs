@@ -16,7 +16,9 @@ public class ClientService : EntityService<ClientDto, Client, UpsertClientComman
 
     public override async Task<IReadOnlyList<ClientDto>> GetAll()
     {
-        var clients = await _entityRepository.GetAll(x => x.Include(x => x.User).Include(x => x.Orders));
+        var clients = await _entityRepository
+            .GetAll(x => x.Include(c => c.User)
+                .Include(o => o.Orders));
 
         return _mapper.Map<IReadOnlyList<ClientDto>>(clients);
     }

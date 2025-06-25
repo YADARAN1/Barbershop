@@ -95,7 +95,7 @@
                             IsReadOnly="True" />
                         <DataGridTextColumn
                             MinWidth="150"
-                            Binding="{Binding Orders.Count}"
+                            Binding="{Binding VisitsCount}"
                             Header="Количество посещений"
                             IsReadOnly="True" />
                     </DataGrid.Columns>
